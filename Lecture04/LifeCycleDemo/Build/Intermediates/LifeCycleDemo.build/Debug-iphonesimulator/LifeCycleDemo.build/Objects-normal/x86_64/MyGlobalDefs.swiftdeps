@@ -1,0 +1,43 @@
+### Swift dependencies file v0 ###
+provides:
+- "pretty_function"
+nominals:
+class-members:
+top-level:
+- "String"
+- "Int"
+- !private "UnicodeScalarType"
+- !private "println"
+- "StringLiteralType"
+- "IntegerLiteralType"
+- "FloatLiteralType"
+member-access:
+- !private "Sd"
+- !private "CSo8NSString"
+- !private "VSs6UInt32"
+- !private "Sb"
+- !private "VSs6UInt16"
+- !private "Sf"
+- !private "VSs5Int32"
+- !private "VSs5UInt8"
+- !private "Sc"
+- !private "CSo8NSObject"
+- !private "Si"
+- !private "VSs9Character"
+- !private "VSs5Int64"
+- !private "VSs6UInt64"
+- !private "VSs4Int8"
+- !private "SS"
+- !private "Su"
+- !private "VSs5Int16"
+dynamic-lookup:
+cross-module:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Security.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreImage.swiftmodule"
