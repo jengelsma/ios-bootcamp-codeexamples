@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="AutoRotationDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monkey-04.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="uHR-6D-dY4">
+                                <rect key="frame" x="186" y="20" width="228" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="228" id="0FU-Zb-LHF"/>
+                                    <constraint firstAttribute="height" constant="228" id="PTg-ub-nE1"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO6-K9-aYo">
+                                <rect key="frame" x="548" y="562" width="36" height="30"/>
+                                <state key="normal" title="More">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="y7N-p7-wdY" kind="show" id="WRd-CZ-c67"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="uHR-6D-dY4" secondAttribute="centerX" id="3cw-0M-qvz"/>
+                            <constraint firstItem="vO6-K9-aYo" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="C9x-dw-bD7"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vO6-K9-aYo" secondAttribute="bottom" constant="8" id="VnW-Ve-Hvz"/>
+                            <constraint firstItem="uHR-6D-dY4" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="yVP-wC-WTf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7kg-FA-zrf">
+            <objects>
+                <viewController id="y7N-p7-wdY" customClass="LSViewController" customModule="AutoRotationDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dDH-Un-kpu"/>
+                        <viewControllerLayoutGuide type="bottom" id="5rM-Vl-w4O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kFV-OB-4yl">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ikp-TD-ZfO">
+                                <rect key="frame" x="76" y="21" width="515" height="333"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="333" id="Kkh-6i-Q0E"/>
+                                    <constraint firstAttribute="width" constant="515" id="Qsn-8f-sWT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQ5-st-h8G">
+                                <rect key="frame" x="16" y="20" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="y7N-p7-wdY" eventType="touchUpInside" id="hgh-1c-pYW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="ikp-TD-ZfO" secondAttribute="centerY" id="36w-8n-iWQ"/>
+                            <constraint firstItem="vQ5-st-h8G" firstAttribute="leading" secondItem="kFV-OB-4yl" secondAttribute="leadingMargin" id="98k-0E-Bw8"/>
+                            <constraint firstItem="vQ5-st-h8G" firstAttribute="top" secondItem="dDH-Un-kpu" secondAttribute="bottom" id="IDM-i6-OZH"/>
+                            <constraint firstAttribute="centerX" secondItem="ikp-TD-ZfO" secondAttribute="centerX" id="vRl-Qs-Ipg"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PBy-qu-7FP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1295.5" y="407.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="landscape.jpg" width="800" height="536"/>
+        <image name="monkey-04.jpg" width="1600" height="1200"/>
+    </resources>
+</document>

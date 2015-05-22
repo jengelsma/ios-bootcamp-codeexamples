@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MyStopWatchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NN5-2b-Gvz">
+                                <rect key="frame" x="547" y="562" width="37" height="30"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="347" y="550" width="37" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="clearTimer:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cc3-nv-uL8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00:000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0je-lL-TLI">
+                                <rect key="frame" x="171" y="273" width="259" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="259" id="4bk-6W-abM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="71" y="274" width="259" height="53"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeC-C6-Rfy">
+                                <rect key="frame" x="270" y="562" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="gIN-Nc-TLc"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="184" y="550" width="33" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="startTimer:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2qK-HJ-5G9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isa-pT-u3u">
+                                <rect key="frame" x="16" y="562" width="37" height="30"/>
+                                <state key="normal" title="Night">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleNightMode:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cCt-p4-4wd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0je-lL-TLI" firstAttribute="centerX" secondItem="FeC-C6-Rfy" secondAttribute="centerX" id="1Je-sF-BVh"/>
+                            <constraint firstItem="FeC-C6-Rfy" firstAttribute="baseline" secondItem="isa-pT-u3u" secondAttribute="baseline" id="FcA-uV-US3"/>
+                            <constraint firstItem="NN5-2b-Gvz" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="R0P-la-NFr"/>
+                            <constraint firstItem="FeC-C6-Rfy" firstAttribute="baseline" secondItem="NN5-2b-Gvz" secondAttribute="baseline" id="SRV-76-0Ux"/>
+                            <constraint firstAttribute="centerY" secondItem="0je-lL-TLI" secondAttribute="centerY" id="U7f-Gz-Uh8"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="isa-pT-u3u" secondAttribute="bottom" constant="8" symbolic="YES" id="Ukt-Wn-9Zj"/>
+                            <constraint firstItem="isa-pT-u3u" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="j3r-Dc-0R6"/>
+                            <constraint firstItem="FeC-C6-Rfy" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="yon-8p-3aU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clearButton" destination="NN5-2b-Gvz" id="gF6-hf-Ff9"/>
+                        <outlet property="displayLabel" destination="0je-lL-TLI" id="vUz-zS-1hh"/>
+                        <outlet property="modeButton" destination="isa-pT-u3u" id="WMd-H2-jqj"/>
+                        <outlet property="startButton" destination="FeC-C6-Rfy" id="dks-Ws-Iug"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
