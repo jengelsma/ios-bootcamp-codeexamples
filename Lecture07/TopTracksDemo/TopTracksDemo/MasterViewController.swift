@@ -19,7 +19,8 @@ class MasterViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = NSURL(string: "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=united+states&api_key=316f518790c69642113e3628d020b9fc&format=json")
+        //TODO: Update the URL in the following line with an API KEY of your own from last.fm.
+        let url = NSURL(string: "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=united+states&api_key=YOUR_API_KEY_GOES_HERE&format=json")
         let session = NSURLSession.sharedSession()
         var parseError : NSError?
         let task = session.downloadTaskWithURL(url!) {
