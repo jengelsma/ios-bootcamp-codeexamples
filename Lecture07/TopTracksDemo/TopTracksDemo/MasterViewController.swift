@@ -27,7 +27,7 @@ class MasterViewController: UITableViewController {
             (loc:NSURL!, response:NSURLResponse!, error:NSError!) in
             let d = NSData(contentsOfURL: loc)!
             let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions.AllowFragments, error: &parseError)
-            self.parseJSON(parsedObject!)
+            self.parseJSONSwiftier(parsedObject!)
             dispatch_async(dispatch_get_main_queue()) {
                 (UIApplication.sharedApplication().delegate as! AppDelegate).decrementNetworkActivity()
                 self.tableView.reloadData()
