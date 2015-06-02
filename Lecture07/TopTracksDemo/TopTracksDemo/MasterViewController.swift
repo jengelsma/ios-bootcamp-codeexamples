@@ -20,7 +20,7 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: Update the URL in the following line with an API KEY of your own from last.fm.
-        let url = NSURL(string: "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=united+states&api_key=YOUR_API_KEY_GOES_HERE&format=json")
+        let url = NSURL(string: "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=united+states&api_key=21f52413768b369a9f6b0af5aeb5f75e&format=json")
         let session = NSURLSession.sharedSession()
         var parseError : NSError?
         let task = session.downloadTaskWithURL(url!) {
@@ -57,7 +57,6 @@ class MasterViewController: UITableViewController {
 
 
     // MARK: - Segues
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
@@ -69,6 +68,7 @@ class MasterViewController: UITableViewController {
 
     // MARK: - Table View
 
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -91,14 +91,14 @@ class MasterViewController: UITableViewController {
         // thumbnail image
         cell.imageView?.image = UIImage(named: "Last_fm_logo")
         if let image = track.objectForKey("image") as? NSArray {
-            if let firstImage = image[0] as? NSDictionary {
+            if let firstImage = image[2] as? NSDictionary {
                 if let imageUrl = firstImage["#text"] as? String {
                     cell.imageView?.loadImageFromURL(NSURL(string:imageUrl),
                         placeholderImage: cell.imageView?.image, cachingKey: imageUrl)
                 }
             }
         }
-        
+
         return cell
     }
 
