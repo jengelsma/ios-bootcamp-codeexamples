@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var artistButton: UIButton!
     @IBOutlet weak var trackButton: UIButton!
 
-    var detailItem: NSDictionary? {
+    var detailItem: Dictionary<String, AnyObject>? {
         didSet {
             // Update the view.
             self.configureView()
@@ -26,20 +26,20 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: NSDictionary = self.detailItem {
+        if let detail = self.detailItem {
             if let label = self.trackName {
-                label.text = detail.objectForKey("name") as? String
+                label.text = detail["name"] as? String
             }
             if let label = self.artistName {
-                let artist = detail.objectForKey("artist") as? NSDictionary
-                label.text = artist?.objectForKey("name") as? String
+                let artist = detail["artist"] as? Dictionary<String,String>
+                label.text = artist?["name"]
             }
             
             if let imageView = self.albumImage {
                 imageView.image = UIImage(named: "Last_fm_logo")
-                if let images = detail.objectForKey("image") as? NSArray {
-                    if let thirdImage = images[2] as? NSDictionary {
-                        if let imageUrl = thirdImage["#text"] as? String {
+                if let images = detail["image"] as? Array<AnyObject> {
+                    if let thirdImage = images[2] as? Dictionary<String,String> {
+                        if let imageUrl = thirdImage["#text"]  {
                             imageView.loadImageFromURL(NSURL(string:imageUrl),
                                 placeholderImage: imageView.image, cachingKey: imageUrl)
                         }
@@ -63,13 +63,13 @@ class DetailViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender as? UIButton == self.trackButton {
-            var mobileUrl = self.detailItem!.objectForKey("url") as? String
+            var mobileUrl = self.detailItem!["url"] as? String
             mobileUrl = mobileUrl?.stringByReplacingOccurrencesOfString("www.last.fm", withString: "m.last.fm")
             (segue.destinationViewController as? CustomWebViewController)?.webUrl = mobileUrl
             (segue.destinationViewController as? CustomWebViewController)?.title = "Track"
         } else if sender as? UIButton == self.artistButton {
-            var artist = self.detailItem!.objectForKey("artist") as? NSDictionary
-            var mobileUrl = artist?.objectForKey("url") as? String
+            var artist = self.detailItem!["artist"] as? Dictionary<String, String>
+            var mobileUrl = artist?["url"] 
             mobileUrl = mobileUrl?.stringByReplacingOccurrencesOfString("www.last.fm", withString: "m.last.fm")
             (segue.destinationViewController as? CustomWebViewController)?.webUrl = mobileUrl
             (segue.destinationViewController as? CustomWebViewController)?.title = "Artist"

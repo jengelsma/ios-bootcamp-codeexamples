@@ -26,22 +26,12 @@ class MasterViewController: UITableViewController {
         let task = session.downloadTaskWithURL(url!) {
             (loc:NSURL!, response:NSURLResponse!, error:NSError!) in
             let d = NSData(contentsOfURL: loc)!
-            let parsedObject: AnyObject?  =
-            NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions.AllowFragments, error: &parseError)
-            if let topLevelObject = parsedObject as? NSDictionary {
-                if let topTracks = topLevelObject.objectForKey("toptracks") as? NSDictionary {
-                    if let tracks = topTracks.objectForKey("track") as? NSArray {
-                        for t in tracks {
-                            self.objects.append(t)
-                        }
-                        dispatch_async(dispatch_get_main_queue()) {
-                            (UIApplication.sharedApplication().delegate as! AppDelegate).decrementNetworkActivity()
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
+            let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions.AllowFragments, error: &parseError)
+            self.parseJSONSwiftier(parsedObject!)
+            dispatch_async(dispatch_get_main_queue()) {
+                (UIApplication.sharedApplication().delegate as! AppDelegate).decrementNetworkActivity()
+                self.tableView.reloadData()
             }
-
             
         }
         (UIApplication.sharedApplication().delegate as! AppDelegate).incrementNetworkActivity()
@@ -53,6 +43,35 @@ class MasterViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - JSON parsing
+    
+    func parseJSON(parsedObject: AnyObject) {
+        if let topLevelObject = parsedObject as? NSDictionary {
+            if let topTracks = topLevelObject.objectForKey("toptracks") as? NSDictionary {
+                if let tracks = topTracks.objectForKey("track") as? NSArray {
+                    for t in tracks {
+                        self.objects.append(t)
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+    This function is an attempt to use more Swift-default types than parseJSON by avoiding NSDictionaries and NSArrays. This has the advantage of being more consistent within Swift. Furthermore it requires a more precise declaration of types when type-casting.
+    */
+    func parseJSONSwiftier(parsedObject: AnyObject) {
+        if let topLevelObject = parsedObject as? Dictionary<String, AnyObject> {
+            if let topTracks = topLevelObject["toptracks"] as? Dictionary<String,AnyObject> {
+                if let tracks = topTracks["track"] as? Array<AnyObject> {
+                    for t in tracks {
+                        self.objects.append(t)
+                    }
+                }
+            }
+        }
+    }
 
 
 
@@ -60,7 +79,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as! NSDictionary
+                let object = objects[indexPath.row] as! Dictionary<String, AnyObject>
                 (segue.destinationViewController as! DetailViewController).detailItem = object
             }
         }
